@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Enter Gaming Mode
+Name[es]=Entrar en Modo Gaming
+Name[ca@valencia]=Entrar en el Mode Joc
+Comment=Switch to the Steam gaming session
+Comment[es]=Cambiar a la sesión de juego de Steam
+Comment[ca@valencia]=Canviar a la sessió de joc de Steam
+Exec=/usr/bin/steamos-session-select gaming
+Icon=steam
+Categories=Game;
+Terminal=false
