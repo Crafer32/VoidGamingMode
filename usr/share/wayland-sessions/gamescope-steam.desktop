@@ -1,6 +1,10 @@
 [Desktop Entry]
-Name=SteamOS Gaming Mode (gamescope)
-Comment=Gamescope + Steam Big Picture, a dedicated gaming session
+Name=Gaming Mode
+Name[es]=Modo Gaming
+Name[ca@valencia]=Mode Joc
+Comment=Steam Big Picture on gamescope
+Comment[es]=Steam Big Picture sobre gamescope
+Comment[ca@valencia]=Steam Big Picture sobre gamescope
 # -steamos3 enables "Switch to Desktop" in Steam
 Exec=gamescope -e -f -- steam -gamepadui -steamos3
 Type=Application
