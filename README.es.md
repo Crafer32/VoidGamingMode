@@ -12,7 +12,15 @@ sesión `plasma`: se cambian en el script.
 
 ```sh
 # xbps-install -Syu void-repo-multilib
-# xbps-install -S steam gamescope pulseaudio opendoas mesa-32bit -y
+# xbps-install -S steam gamescope pulseaudio opendoas mesa-32bit git -y
+```
+
+## Descarga
+
+```sh
+$ cd /tmp
+$ git clone https://github.com/Crafer32/VoidGamingMode.git
+$ cd VoidGamingMode
 ```
 
 ## Instalación

@@ -12,7 +12,15 @@ change them in the script.
 
 ```sh
 # xbps-install -Syu void-repo-multilib
-# xbps-install -S steam gamescope pulseaudio opendoas mesa-32bit -y
+# xbps-install -S steam gamescope pulseaudio opendoas mesa-32bit git -y
+```
+
+## Download
+
+```sh
+$ cd /tmp
+$ git clone https://github.com/Crafer32/VoidGamingMode.git
+$ cd VoidGamingMode
 ```
 
 ## Install
