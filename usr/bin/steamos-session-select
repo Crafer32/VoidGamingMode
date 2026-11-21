@@ -1,30 +1,20 @@
 #!/bin/sh
-# SteamOS-like session switching for distributions without systemd.
-# Usage: steamos-session-select desktop|gaming|boot [SESSION]
+# SteamOS-like session switching for Void Linux (runit + SDDM, no systemd).
 
 set_session() {   # $1 = plasma | gamescope-steam
-    printf '[Autologin]\nRelogin=true\nSession=%s\nUser=%s\n' "$1" "deck" > "/etc/sddm.conf.d/autologin.conf" # You can select user here
-    rm -f "/var/lib/sddm/state.conf"
-}
-
-switch_to() {   # $1 = plasma | gamescope-steam
-    set_session "$1"
-    # Kill everything left of the session we leave (its cgroup), detached from doas
-    old=$(loginctl show-seat seat0 -p ActiveSession --value)
-    [ -n "$old" ] && setsid -f sh -c "sleep 1; echo 1 > /sys/fs/cgroup/$old/cgroup.kill"
-    sv restart sddm # You can select different init system or dm here
+    printf '[Autologin]\nRelogin=true\nSession=%s\nUser=deck\n' "$1" > /etc/sddm.conf.d/autologin.conf
 }
 
 case "$1" in
-    boot)
-        [ -e "/run/steamos-session-boot" ] && exit 0
-        : > "/run/steamos-session-boot"
-        set_session "${2:-plasma}"
-        exit 0 ;;
-    desktop|plasma*)                  S=plasma ;;
-    gaming|gamescope|gamescope-steam) S=gamescope-steam ;;
-    *) echo "usage: $0 desktop|plasma|gaming|gamescope|boot" >&2; exit 1 ;;
+    boot) [ -e /run/steamos-session-boot ] && exit 0
+          : > /run/steamos-session-boot; set_session "${2:-plasma}"; exit 0 ;;
+    desktop|plasma*)  S=plasma ;;
+    gaming|gamescope) S=gamescope-steam ;;
+    *) echo "usage: $0 desktop|gaming|boot [SESSION]" >&2; exit 1 ;;
 esac
 
-[ "$(id -u)" -eq 0 ] || exec doas -n /usr/bin/steamos-session-select "$S"
-switch_to "$S"
+[ "$(id -u)" -eq 0 ] || exec doas -n "$0" "$1"
+set_session "$S"
+# Kill what is left of the session we leave (its cgroup), detached from doas
+setsid -f sh -c "sleep 1; echo 1 > /sys/fs/cgroup/$(loginctl show-seat seat0 -p ActiveSession --value)/cgroup.kill"
+sv restart sddm

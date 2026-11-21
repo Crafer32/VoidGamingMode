@@ -27,6 +27,7 @@ $ cd VoidGamingMode
 
 ```sh
 # install -D -o root -g root -m 555 usr/bin/steamos-session-select /usr/bin/steamos-session-select
+# install -D -o root -g root -m 755 usr/local/bin/gaming-session /usr/local/bin/gaming-session
 # install -D -o root -g root -m 644 usr/share/wayland-sessions/gamescope-steam.desktop /usr/share/wayland-sessions/gamescope-steam.desktop
 # install -D -o root -g root -m 644 usr/share/applications/gaming-mode.desktop /usr/share/applications/gaming-mode.desktop
 ```
@@ -50,7 +51,7 @@ $ cd VoidGamingMode
 ## Uso
 
 ```sh
-$ steamos-session-select gaming          # cambiar a Modo Gaming (también: gamescope, gamescope-steam)
+$ steamos-session-select gaming          # cambiar a Modo Gaming (también: gamescope)
 $ steamos-session-select desktop         # cambiar al escritorio (también: plasma)
 # steamos-session-select boot [SESSION]  # sesión que abre SDDM al arrancar (por defecto: plasma)
 ```

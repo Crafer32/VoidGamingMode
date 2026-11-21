@@ -18,15 +18,16 @@ change them in the script.
 ## Download
 
 ```sh
-$ cd /tmp
-$ git clone https://github.com/Crafer32/VoidGamingMode.git
-$ cd VoidGamingMode
+# cd /tmp
+# git clone https://github.com/Crafer32/VoidGamingMode.git
+# cd VoidGamingMode
 ```
 
 ## Install
 
 ```sh
 # install -D -o root -g root -m 555 usr/bin/steamos-session-select /usr/bin/steamos-session-select
+# install -D -o root -g root -m 755 usr/local/bin/gaming-session /usr/local/bin/gaming-session
 # install -D -o root -g root -m 644 usr/share/wayland-sessions/gamescope-steam.desktop /usr/share/wayland-sessions/gamescope-steam.desktop
 # install -D -o root -g root -m 644 usr/share/applications/gaming-mode.desktop /usr/share/applications/gaming-mode.desktop
 ```
@@ -50,7 +51,7 @@ $ cd VoidGamingMode
 ## Use
 
 ```sh
-$ steamos-session-select gaming          # switch to Gaming Mode (also: gamescope, gamescope-steam)
+$ steamos-session-select gaming          # switch to Gaming Mode (also: gamescope)
 $ steamos-session-select desktop         # switch to the desktop (also: plasma)
 # steamos-session-select boot [SESSION]  # pick the session SDDM opens at boot (default: plasma)
 ```
