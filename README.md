@@ -1,7 +1,5 @@
 # VoidGamingMode
 
-**English** | [Español](README.es.md)
-
 SteamOS-like Gaming Mode for Void Linux. Switch between your desktop and Steam
 Big Picture (gamescope), Steam's "Switch to Desktop" included. No systemd.
 
