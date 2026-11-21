@@ -1,4 +1,0 @@
-#!/bin/sh
-# Steam (Steam Runtime 3, in a container) can no longer autostart PulseAudio
-pulseaudio --start
-exec gamescope "$@"
